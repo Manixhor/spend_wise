@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Spend Wise{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'expenses/css/app-shell.css' %}" />
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <div class="app">
+    {% include "includes/app_sidebar.html" %}
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+    <div class="main">
+      {% block topbar %}
+      <header class="topbar">
+        <div class="topbar__left">
+          <button
+            type="button"
+            class="menu-btn"
+            id="menuOpen"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="sidebar"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          {% block topbar_back %}
+          <a class="back-btn" href="{% url 'login' %}" aria-label="Back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </a>
+          {% endblock %}
+        </div>
+        <h1 class="topbar__heading">{% block topbar_title %}Spend Wise{% endblock %}</h1>
+        <div class="avatar">
+          <img src="{% static 'expenses/images/avatar-profile.png' %}" alt="" width="44" height="44" />
+        </div>
+      </header>
+      {% endblock %}
+      <div class="content {% block content_class %}{% endblock %}">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'expenses/js/app-shell.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

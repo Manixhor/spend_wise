@@ -1,0 +1,363 @@
+/* SpendWise Dashboard — Light Theme Apple Style */
+
+:root {
+  --bg: #f5f6fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9f9fb;
+  --text: #1d1d1f;
+  --text-muted: #86868b;
+  --text-subtle: #aeaeb2;
+  --green: #34c759;
+  --purple: #af52de;
+  --blue: #5e5ce6;
+  --orange: #ff9f0a;
+  --red: #ff3b30;
+  --gradient-blue: linear-gradient(135deg, #5e5ce6 0%, #a855f7 100%);
+  --gradient-purple: linear-gradient(135deg, #af52de 0%, #bf5af2 100%);
+  --gradient-green: linear-gradient(135deg, #34c759 0%, #30d158 100%);
+  --gradient-orange: linear-gradient(135deg, #ff9f0a 0%, #ffb340 100%);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.14);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --font: -apple-system, system-ui, "SF Pro Display", "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.dashboard-light {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  max-width: 1400px;
+}
+
+/* Header */
+.dashboard-header {
+  margin-bottom: 0.5rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.greeting {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.subtext {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.card__link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.card__link:hover {
+  text-decoration: underline;
+}
+
+/* Insights Card */
+.insights-body {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.donut {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.donut__chart {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut__value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.insights-text {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.insights-text strong {
+  color: var(--green);
+}
+
+/* Balance Card */
+.balance-value {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.balance-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.balance-stat {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.balance-stat span {
+  font-weight: 600;
+}
+
+.balance-stat--up span {
+  color: var(--green);
+}
+
+.balance-stat--down span {
+  color: var(--red);
+}
+
+/* Category Row */
+.category-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.category-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-card__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.category-card--blue .category-card__icon {
+  background: var(--gradient-blue);
+  color: #fff;
+}
+
+.category-card--purple .category-card__icon {
+  background: var(--gradient-purple);
+  color: #fff;
+}
+
+.category-card--green .category-card__icon {
+  background: var(--gradient-green);
+  color: #fff;
+}
+
+.category-card--orange .category-card__icon {
+  background: var(--gradient-orange);
+  color: #fff;
+}
+
+.category-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.category-card__amt {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.category-card__label {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Overview Card */
+.card--overview {
+  min-height: 340px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-dot--income {
+  background: var(--green);
+}
+
+.legend-dot--expense {
+  background: var(--purple);
+}
+
+.overview-chart {
+  width: 100%;
+  height: auto;
+}
+
+.chart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-light {
+    padding: 1rem;
+  }
+
+  .category-row {
+    grid-template-columns: 1fr;
+  }
+
+  .greeting {
+    font-size: 1.5rem;
+  }
+
+  .insights-body {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .balance-value {
+    font-size: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

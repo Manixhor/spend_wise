@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard — Spend Wise{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'expenses/css/dashboard.css' %}" />
+{% endblock %}
+
+{% block topbar_title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-light">
+  <header class="dashboard-header">
+    <div class="dashboard-header__content">
+      <div class="user-info">
+        <img src="{% static 'expenses/images/avatar-profile.png' %}" alt="" class="user-avatar" width="48" height="48" />
+        <div class="user-text">
+          <h1 class="greeting">Welcome back, Kim!</h1>
+          <p class="subtext">Here's your financial overview</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-grid">
+    <section class="card card--insights">
+      <div class="card__header">
+        <h2 class="card__title">Insights</h2>
+        <a href="#" class="card__link">Read all</a>
+      </div>
+      <div class="insights-body">
+        <div class="donut">
+          <svg viewBox="0 0 120 120" class="donut__chart">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#34c759" stroke-width="16" stroke-dasharray="157 314" stroke-dashoffset="-47" />
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#af52de" stroke-width="16" stroke-dasharray="63 314" stroke-dashoffset="110" />
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#0a84ff" stroke-width="16" stroke-dasharray="47 314" stroke-dashoffset="173" />
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#ff9f0a" stroke-width="16" stroke-dasharray="47 314" stroke-dashoffset="220" />
+          </svg>
+          <span class="donut__value">$2,453</span>
+        </div>
+        <p class="insights-text">You have spent <strong>72%</strong> of your monthly budget</p>
+      </div>
+    </section>
+
+    <section class="card card--balance">
+      <div class="card__header">
+        <h2 class="card__title">Total Balance</h2>
+      </div>
+      <p class="balance-value">$12,530.00</p>
+      <div class="balance-stats">
+        <p class="balance-stat balance-stat--up">Last week <span>+$590.00</span></p>
+        <p class="balance-stat balance-stat--down">Last week <span>-$660.13</span></p>
+      </div>
+    </section>
+  </div>
+
+  <section class="category-row">
+    <div class="category-card category-card--blue">
+      <div class="category-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <path d="M9 22V12h6v10"/>
+        </svg>
+      </div>
+      <div class="category-card__content">
+        <span class="category-card__amt">$1,410</span>
+        <span class="category-card__label">Rent</span>
+      </div>
+    </div>
+    <div class="category-card category-card--purple">
+      <div class="category-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <path d="M7 15h4M7 11h10"/>
+        </svg>
+      </div>
+      <div class="category-card__content">
+        <span class="category-card__amt">$410</span>
+        <span class="category-card__label">Transport</span>
+      </div>
+    </div>
+    <div class="category-card category-card--green">
+      <div class="category-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+      <div class="category-card__content">
+        <span class="category-card__amt">$325.90</span>
+        <span class="category-card__label">Health</span>
+      </div>
+    </div>
+    <div class="category-card category-card--orange">
+      <div class="category-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </div>
+      <div class="category-card__content">
+        <span class="category-card__amt">$290.13</span>
+        <span class="category-card__label">Groceries</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card card--overview">
+    <div class="card__header">
+      <h2 class="card__title">Overview</h2>
+      <div class="chart-legend">
+        <span class="legend-item"><i class="legend-dot legend-dot--income"></i> Income</span>
+        <span class="legend-item"><i class="legend-dot legend-dot--expense"></i> Expenses</span>
+      </div>
+    </div>
+    <div class="overview-chart">
+      <svg viewBox="0 0 800 280" class="chart-svg">
+        <defs>
+          <linearGradient id="incomeGlowL" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#34c759" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#34c759" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g stroke="#e5e5e7" stroke-width="1">
+          <line x1="60" y1="230" x2="760" y2="230"/>
+          <line x1="60" y1="175" x2="760" y2="175"/>
+          <line x1="60" y1="120" x2="760" y2="120"/>
+          <line x1="60" y1="65" x2="760" y2="65"/>
+        </g>
+        <g fill="#86868b" font-size="11" font-family="system-ui">
+          <text x="45" y="234">$0</text>
+          <text x="35" y="179">$1k</text>
+          <text x="35" y="124">$2k</text>
+          <text x="30" y="69">$3k</text>
+        </g>
+        <g fill="#1d1d1f" font-size="12" font-weight="500" text-anchor="middle" font-family="system-ui">
+          <text x="130" y="255">April</text>
+          <text x="230" y="255">May</text>
+          <text x="330" y="255">June</text>
+          <text x="430" y="255">July</text>
+          <text x="530" y="255">Aug</text>
+          <text x="630" y="255">Sept</text>
+        </g>
+        <g>
+          <rect x="76" y="130" width="24" height="100" rx="6" fill="#34c759" opacity="0.85"/>
+          <rect x="104" y="100" width="24" height="130" rx="6" fill="#af52de" opacity="0.85"/>
+          <rect x="176" y="115" width="24" height="115" rx="6" fill="#34c759" opacity="0.85"/>
+          <rect x="204" y="85" width="24" height="145" rx="6" fill="#af52de" opacity="0.85"/>
+          <rect x="276" y="95" width="24" height="135" rx="6" fill="#34c759" opacity="0.85"/>
+          <rect x="304" y="70" width="24" height="160" rx="6" fill="#af52de" opacity="0.85"/>
+          <rect x="376" y="80" width="24" height="150" rx="6" fill="#34c759" opacity="0.85"/>
+          <rect x="404" y="55" width="24" height="175" rx="6" fill="#af52de" opacity="0.85"/>
+          <rect x="476" y="65" width="24" height="165" rx="6" fill="#34c759" opacity="0.85"/>
+          <rect x="504" y="40" width="24" height="190" rx="6" fill="#af52de" opacity="0.85"/>
+          <rect x="576" y="50" width="24" height="180" rx="6" fill="#34c759" opacity="0.85"/>
+          <rect x="604" y="25" width="24" height="205" rx="6" fill="#af52de" opacity="0.85"/>
+        </g>
+        <path d="M 88 130 L 188 115 L 288 95 L 388 80 L 488 65 L 588 50 L 688 25" fill="none" stroke="#34c759" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="drop-shadow(0 2px 4px rgba(52,199,89,0.3))"/>
+        <circle cx="388" cy="80" r="5" fill="#34c759"/>
+      </svg>
+    </div>
+  </section>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'expenses/js/dashboard.js' %}"></script>
+{% endblock %}

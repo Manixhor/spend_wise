@@ -1,9 +1,22 @@
-from django.urls import path
-from . import views
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import (
+    UserRegistrationView,
+    LoginView,
+    LogoutView,
+    CategoryViewSet,
+    ExpenseViewSet,
+)
+
+router = DefaultRouter()
+router.register(r"categories", CategoryViewSet, basename="category")
+router.register(r"expenses", ExpenseViewSet, basename="expense")
 
 urlpatterns = [
-    path('expenses/', views.get_expenses),
-    path('add-expense/', views.add_expense),
-    path('expenses/delete/<int:id>/', views.delete_expense),
-    path('expenses/update/<int:id>/', views.update_expense),
+    # Authentication
+    path("auth/register/", UserRegistrationView.as_view(), name="register"),
+    path("auth/login/", LoginView.as_view(), name="login"),
+    path("auth/logout/", LogoutView.as_view(), name="logout"),
+    # Main endpoints
+    path("", include(router.urls)),
 ]

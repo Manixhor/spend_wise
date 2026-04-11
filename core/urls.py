@@ -16,9 +16,42 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('expenses.urls')),
+    path("", TemplateView.as_view(template_name="home.html"), name="home"),
+    path(
+        "login/",
+        TemplateView.as_view(
+            template_name="login.html",
+            extra_context={"active_page": "login"},
+        ),
+        name="login",
+    ),
+    path(
+        "dashboard/",
+        TemplateView.as_view(
+            template_name="dashboard.html",
+            extra_context={"active_page": "dashboard"},
+        ),
+        name="dashboard",
+    ),
+    path(
+        "weekly/",
+        TemplateView.as_view(
+            template_name="weekly.html",
+            extra_context={"active_page": "weekly"},
+        ),
+        name="weekly",
+    ),
+    path(
+        "monthly/",
+        TemplateView.as_view(
+            template_name="monthly.html",
+            extra_context={"active_page": "monthly"},
+        ),
+        name="monthly",
+    ),
+    path("admin/", admin.site.urls),
+    path("api/", include("expenses.urls")),
 ]

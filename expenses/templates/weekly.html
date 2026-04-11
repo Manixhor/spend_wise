@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Weekly View — Spend Wise{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'expenses/css/weekly.css' %}" />
+{% endblock %}
+
+{% block topbar_title %}Weekly View{% endblock %}
+
+{% block content_class %}content--wide{% endblock %}
+
+{% block content %}
+<div class="week-calendar">
+  <div class="week-header">
+    <button type="button" class="week-nav-btn" data-week-prev aria-label="Previous week">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <h2 class="week-title" data-week-range>April 2025</h2>
+    <button type="button" class="week-nav-btn" data-week-next aria-label="Next week">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="day-names">
+    <span>Mon</span>
+    <span>Tue</span>
+    <span>Wed</span>
+    <span>Thu</span>
+    <span>Fri</span>
+    <span>Sat</span>
+    <span>Sun</span>
+  </div>
+
+  <div class="calendar-grid">
+    <button type="button" class="day-cell">
+      <span class="day-num">1</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">2</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">3</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">4</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">5</span>
+    </button>
+    <button type="button" class="day-cell day-cell--highlight">
+      <span class="day-num">6</span>
+    </button>
+    <button type="button" class="day-cell day-cell--highlight">
+      <span class="day-num">7</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">8</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">9</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">10</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">11</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">12</span>
+    </button>
+    <button type="button" class="day-cell day-cell--highlight">
+      <span class="day-num">13</span>
+    </button>
+    <button type="button" class="day-cell day-cell--highlight">
+      <span class="day-num">14</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">15</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">16</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">17</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">18</span>
+    </button>
+    <button type="button" class="day-cell day-cell--highlight">
+      <span class="day-num">19</span>
+    </button>
+    <button type="button" class="day-cell day-cell--highlight">
+      <span class="day-num">20</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">21</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">22</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">23</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">24</span>
+    </button>
+    <button type="button" class="day-cell day-cell--highlight">
+      <span class="day-num">25</span>
+    </button>
+    <button type="button" class="day-cell day-cell--highlight">
+      <span class="day-num">26</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">27</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">28</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">29</span>
+    </button>
+    <button type="button" class="day-cell">
+      <span class="day-num">30</span>
+    </button>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'expenses/js/weekly.js' %}"></script>
+{% endblock %}

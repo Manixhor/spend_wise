@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Spend Wise{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'expenses/css/app-shell.css' %}" />
+  <link rel="stylesheet" href="{% static 'expenses/css/dashboard-dark.css' %}" />
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="theme-dark-dash">
+  <div class="app app--dark-dash">
+    {% include "includes/app_sidebar_dark.html" %}
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+    <div class="main main--dark-dash">
+      {% block topbar %}
+      <header class="topbar topbar--dark-dash">
+        <div class="topbar__left">
+          <button
+            type="button"
+            class="menu-btn menu-btn--dark"
+            id="menuOpen"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="sidebar"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <div class="topbar__dark-spacer"></div>
+        <a class="avatar avatar--dark-top" href="{% url 'login' %}" aria-label="Account">
+          <img src="{% static 'expenses/images/avatar-profile.png' %}" alt="" width="40" height="40" />
+        </a>
+      </header>
+      {% endblock %}
+      <div class="dash-dark-wrap {% block content_class %}{% endblock %}">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'expenses/js/app-shell.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

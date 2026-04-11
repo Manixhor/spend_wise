@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Analytics — Spend Wise{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'expenses/css/monthly.css' %}" />
+{% endblock %}
+
+{% block topbar_title %}Analytics{% endblock %}
+
+{% block content_class %}content--analytics{% endblock %}
+
+{% block content %}
+
+<div class="analytics-page">
+  <header class="analytics-header">
+    <div class="analytics-header__left">
+      <h1 class="analytics-title">Analytics</h1>
+      <p class="analytics-subtitle">Track your spending patterns</p>
+    </div>
+    <div class="period-toggle">
+      <button type="button" class="period-btn">Weekly</button>
+      <button type="button" class="period-btn is-active">Monthly</button>
+    </div>
+  </header>
+
+  <section class="chart-section">
+    <div class="analytics-card">
+      <div class="analytics-card__header">
+        <h2 class="analytics-card__title">Spending Overview</h2>
+        <div class="chart-legend">
+          <span class="legend-item"><i class="legend-dot legend-dot--income"></i> Income</span>
+          <span class="legend-item"><i class="legend-dot legend-dot--expense"></i> Expenses</span>
+        </div>
+      </div>
+      <div class="analytics-chart">
+        <svg viewBox="0 0 800 300" class="chart-svg">
+          <defs>
+            <linearGradient id="incomeGradLight" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#34c759" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#34c759" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="#e5e5e7" stroke-width="1">
+            <line x1="60" y1="240" x2="760" y2="240"/>
+            <line x1="60" y1="185" x2="760" y2="185"/>
+            <line x1="60" y1="130" x2="760" y2="130"/>
+            <line x1="60" y1="75" x2="760" y2="75"/>
+          </g>
+          <g fill="#86868b" font-size="11" font-family="system-ui">
+            <text x="45" y="244">$0</text>
+            <text x="35" y="189">$5k</text>
+            <text x="35" y="134">$10k</text>
+            <text x="30" y="79">$15k</text>
+          </g>
+          <g fill="#1d1d1f" font-size="12" font-weight="500" text-anchor="middle" font-family="system-ui">
+            <text x="130" y="270">April</text>
+            <text x="230" y="270">May</text>
+            <text x="330" y="270">June</text>
+            <text x="430" y="270">July</text>
+            <text x="530" y="270">Aug</text>
+            <text x="630" y="270">Sept</text>
+          </g>
+          <g>
+            <rect x="95" y="180" width="24" height="60" rx="6" fill="#34c759" opacity="0.9"/>
+            <rect x="123" y="140" width="24" height="100" rx="6" fill="#af52de" opacity="0.9"/>
+            <rect x="195" y="155" width="24" height="85" rx="6" fill="#34c759" opacity="0.9"/>
+            <rect x="223" y="120" width="24" height="120" rx="6" fill="#af52de" opacity="0.9"/>
+            <rect x="295" y="145" width="24" height="95" rx="6" fill="#34c759" opacity="0.9"/>
+            <rect x="323" y="100" width="24" height="140" rx="6" fill="#af52de" opacity="0.9"/>
+            <rect x="395" y="130" width="24" height="110" rx="6" fill="#34c759" opacity="0.9"/>
+            <rect x="423" y="85" width="24" height="155" rx="6" fill="#af52de" opacity="0.9"/>
+            <rect x="495" y="110" width="24" height="130" rx="6" fill="#34c759" opacity="0.9"/>
+            <rect x="523" y="70" width="24" height="170" rx="6" fill="#af52de" opacity="0.9"/>
+            <rect x="595" y="90" width="24" height="150" rx="6" fill="#34c759" opacity="0.9"/>
+            <rect x="623" y="55" width="24" height="185" rx="6" fill="#af52de" opacity="0.9"/>
+          </g>
+          <path d="M 107 180 L 207 155 L 307 145 L 407 130 L 507 110 L 607 90 L 707 70" fill="none" stroke="#34c759" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="drop-shadow(0 2px 4px rgba(52,199,89,0.3))"/>
+          <circle cx="407" cy="130" r="5" fill="#34c759"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="summary-row">
+    <div class="summary-card summary-card--income">
+      <div class="summary-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M5 12l7-7 7 7"/>
+        </svg>
+      </div>
+      <div class="summary-card__content">
+        <span class="summary-card__label">Income</span>
+        <span class="summary-card__value">$7,836</span>
+      </div>
+    </div>
+    <div class="summary-card summary-card--expense">
+      <div class="summary-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M19 12l-7 7-7-7"/>
+        </svg>
+      </div>
+      <div class="summary-card__content">
+        <span class="summary-card__label">Expenses</span>
+        <span class="summary-card__value">$4,263</span>
+      </div>
+    </div>
+    <div class="summary-card summary-card--balance">
+      <div class="summary-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <path d="M2 10h20"/>
+        </svg>
+      </div>
+      <div class="summary-card__content">
+        <span class="summary-card__label">Balance</span>
+        <span class="summary-card__value">$3,573</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories-section">
+    <h2 class="categories-title">Category Breakdown</h2>
+    <div class="categories-grid">
+      <div class="category-card">
+        <div class="category-card__header">
+          <div class="category-card__icon category-card__icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+              <line x1="6" y1="1" x2="6" y2="4"/>
+              <line x1="10" y1="1" x2="10" y2="4"/>
+              <line x1="14" y1="1" x2="14" y2="4"/>
+            </svg>
+          </div>
+          <span class="category-card__badge category-card__badge--green">32%</span>
+        </div>
+        <p class="category-card__name">Food & Dining</p>
+        <p class="category-card__amt">$1,364</p>
+      </div>
+      <div class="category-card">
+        <div class="category-card__header">
+          <div class="category-card__icon category-card__icon--purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+            </svg>
+          </div>
+          <span class="category-card__badge category-card__badge--purple">24%</span>
+        </div>
+        <p class="category-card__name">Shopping</p>
+        <p class="category-card__amt">$1,023</p>
+      </div>
+      <div class="category-card">
+        <div class="category-card__header">
+          <div class="category-card__icon category-card__icon--orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <span class="category-card__badge category-card__badge--orange">19%</span>
+        </div>
+        <p class="category-card__name">Subscriptions</p>
+        <p class="category-card__amt">$810</p>
+      </div>
+      <div class="category-card">
+        <div class="category-card__header">
+          <div class="category-card__icon category-card__icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <span class="category-card__badge category-card__badge--blue">14%</span>
+        </div>
+        <p class="category-card__name">Bills & Utilities</p>
+        <p class="category-card__amt">$597</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'expenses/js/monthly.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Spend Wise{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'expenses/css/app-shell.css' %}" />
+  <link rel="stylesheet" href="{% static 'expenses/css/dashboard-dark.css' %}" />
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="theme-dark-dash">
+  <div class="app app--dark-dash">
+    <aside class="sidebar sidebar--rail" id="sidebar" aria-label="Main navigation">
+      <div class="rail__mobile-head">
+        <button type="button" class="sidebar__close rail__close" id="sidebarClose" aria-label="Close menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+        <span class="rail__brand-mobile">Spend Wise</span>
+      </div>
+
+      <div class="rail__profile">
+        <div class="rail__avatar" aria-hidden="true">
+          <img src="{% static 'expenses/images/avatar-profile.png' %}" alt="" width="48" height="48" />
+          <span class="rail__notify" aria-label="Notifications"></span>
+        </div>
+        <span class="rail__brand-desktop">Spend Wise</span>
+      </div>
+
+      <nav class="sidebar__nav rail__nav" aria-label="Primary">
+        <a
+          class="rail__link{% if active_page == 'dashboard' %} is-active{% endif %}"
+          href="{% url 'dashboard' %}"
+          title="Home"
+        >
+          <span class="rail__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </span>
+          <span class="visually-hidden">Home</span>
+        </a>
+        <a
+          class="rail__link{% if active_page == 'monthly' %} is-active{% endif %}"
+          href="{% url 'monthly' %}"
+          title="Monthly Analysis"
+        >
+          <span class="rail__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+          </span>
+          <span class="visually-hidden">Monthly Analysis</span>
+        </a>
+        <a
+          class="rail__link{% if active_page == 'weekly' %} is-active{% endif %}"
+          href="{% url 'weekly' %}"
+          title="Weekly Analysis"
+        >
+          <span class="rail__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          <span class="visually-hidden">Weekly Analysis</span>
+        </a>
+        <a class="rail__link" href="{% url 'login' %}" title="Logout">
+          <span class="rail__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16 17 21 12 16 7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+          </span>
+          <span class="visually-hidden">Logout</span>
+        </a>
+        <button type="button" class="rail__link theme-toggle-btn" id="sidebarThemeToggle" title="Toggle theme">
+          <span class="rail__icon" aria-hidden="true">
+            <svg class="side-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg class="side-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </span>
+          <span class="visually-hidden">Toggle theme</span>
+        </button>
+      </nav>
+    </aside>
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+    <div class="main main--dark-dash">
+      {% block topbar %}
+      <header class="topbar topbar--dark-dash">
+        <div class="topbar__left">
+          <button
+            type="button"
+            class="menu-btn menu-btn--dark"
+            id="menuOpen"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="sidebar"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <div class="topbar__right">
+          <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <svg class="theme-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg class="theme-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+          <button type="button" class="topbar-icon" aria-label="Notifications">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="notification-dot"></span>
+          </button>
+          <a class="avatar avatar--dark-top" href="{% url 'login' %}" aria-label="Account">
+            <img src="{% static 'expenses/images/avatar-profile.png' %}" alt="" width="40" height="40" />
+          </a>
+        </div>
+      </header>
+      {% endblock %}
+      <div class="dash-dark-wrap {% block content_class %}{% endblock %}">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'expenses/js/app-shell.js' %}"></script>
+  <script>
+    (function() {
+      var toggles = document.querySelectorAll('#themeToggle, #sidebarThemeToggle');
+      var body = document.body;
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') body.classList.add('theme-light');
+      toggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+          body.classList.toggle('theme-light');
+          localStorage.setItem('theme', body.classList.contains('theme-light') ? 'light' : 'dark');
+        });
+      });
+    })();
+  </script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
