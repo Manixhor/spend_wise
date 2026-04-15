@@ -32,15 +32,3 @@ If applicable, add screenshots or paste error logs to help explain your problem.
 ```
 Paste error logs here
 ```
-
-## Environment
-
-- **OS**: [e.g. macOS 14, Ubuntu 22.04]
-- **Python Version**: [e.g. 3.11]
-- **Django Version**: [e.g. 4.2]
-- **Database**: [e.g. MySQL 8.0]
-- **Branch/Commit**: [e.g. main / abc1234]
-
-## Additional Context
-
-Add any other context about the problem here.
